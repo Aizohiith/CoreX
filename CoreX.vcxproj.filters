@@ -30,6 +30,9 @@
     <ClInclude Include="corex\serialize.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="corex\encrypt.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo.cpp">

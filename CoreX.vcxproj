@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="corex\console.hpp" />
     <ClInclude Include="corex\corex.hpp" />
+    <ClInclude Include="corex\encrypt.hpp" />
     <ClInclude Include="corex\fileio.hpp" />
     <ClInclude Include="corex\math.hpp" />
     <ClInclude Include="corex\serialize.hpp" />
