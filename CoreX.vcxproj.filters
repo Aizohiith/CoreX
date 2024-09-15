@@ -39,6 +39,9 @@
     <ClInclude Include="corex\function.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="corex\vector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo.cpp">

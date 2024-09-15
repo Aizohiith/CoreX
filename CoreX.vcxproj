@@ -135,6 +135,7 @@
     <ClInclude Include="corex\math.hpp" />
     <ClInclude Include="corex\matrix.hpp" />
     <ClInclude Include="corex\serialize.hpp" />
+    <ClInclude Include="corex\vector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo.cpp" />
