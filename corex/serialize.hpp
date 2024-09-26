@@ -5,111 +5,186 @@
 namespace CoreX { namespace Serialize
 {
         template<typename T>
-        typename std::enable_if<Is_Primitive<T>::value, std::string>::type
-        Serialize_Binary(const T&);
+        std::string Serialize_Text(const T& Data);
+        template<>
+        std::string Serialize_Text(const std::string& Data);
+        template<typename T>
+        std::string Serialize_Text(const std::vector<T>& Data);
 
         template<typename T>
-        typename std::enable_if<!Is_Primitive<T>::value, std::string>::type
-        Serialize_Binary(const T&);
-
+        typename std::enable_if<!CoreX::is_vector<T>::value && !CoreX::is_string<T>::value, T>::type
+        Deserialize_Text(const std::string& Data);
         template<typename T>
-        typename std::enable_if<Is_Primitive<T>::value, T>::type
-        Deserialize_Binary(const std::string& Data);
-
+        typename std::enable_if<CoreX::is_vector<T>::value, T>::type
+        Deserialize_Text(const std::string& Data);
         template<typename T>
-        typename std::enable_if<!Is_Primitive<T>::value, T>::type
-        Deserialize_Binary(const std::string& Data);
-
-        template<typename T>
-        typename std::enable_if<Is_Primitive<T>::value, std::string>::type
-        Serialize_Text(const T&);
-
-        template<typename T>
-        typename std::enable_if<!Is_Primitive<T>::value, std::string>::type
-        Serialize_Text(const T&);
-
-        template<typename T>
-        typename std::enable_if<Is_Primitive<T>::value, T>::type
+        typename std::enable_if<CoreX::is_string<T>::value, T>::type
         Deserialize_Text(const std::string& Data);
 
         template<typename T>
-        typename std::enable_if<!Is_Primitive<T>::value, T>::type
-        Deserialize_Text(const std::string& Data);
+        std::string Serialize_Binary(const T& Data);
+        template<>
+        std::string Serialize_Binary(const std::string& Data);
+        template<typename T>
+        std::string Serialize_Binary(const std::vector<T>& Data);
+
+        template<typename T>
+        typename std::enable_if<!CoreX::is_vector<T>::value && !CoreX::is_string<T>::value, T>::type
+        Deserialize_Binary(std::string& Data);
+        template<typename T>
+        typename std::enable_if<CoreX::is_vector<T>::value, T>::type
+        Deserialize_Binary(std::string& Data);
+        template<typename T>
+        typename std::enable_if<CoreX::is_string<T>::value, T>::type
+        Deserialize_Binary(std::string& Data);
 }}
 
-template<typename T>
-typename std::enable_if<CoreX::Is_Primitive<T>::value, std::string>::type
-CoreX::Serialize::Serialize_Binary(const T& pp_Data)
+template<>
+std::string CoreX::Serialize::Serialize_Text(const std::string& ps_Data)
 {
-    std::ostringstream  ll_Stream(std::ios::binary);
+    std::ostringstream ll_Stream;
+    ll_Stream << ps_Data.length() << " ";
+    ll_Stream << ps_Data;
+    return ll_Stream.str();
+}
 
-    ll_Stream.write(reinterpret_cast<const char*>(&pp_Data), sizeof(pp_Data));
+template<typename T>
+std::string CoreX::Serialize::Serialize_Text(const std::vector<T>& parr_Data)
+{
+    std::ostringstream ll_Stream;
+    ll_Stream << parr_Data.size() << " ";
+
+    for (const auto& E1 : parr_Data)
+            ll_Stream << E1 << ' ';
 
     return ll_Stream.str();
 }
 
 template<typename T>
-typename std::enable_if<!CoreX::Is_Primitive<T>::value, std::string>::type
-CoreX::Serialize::Serialize_Binary(const T& pp_Data)
+typename std::enable_if<CoreX::is_vector<T>::value, T>::type
+CoreX::Serialize::Deserialize_Text(const std::string& ps_Data)
 {
-    static_assert(std::is_member_function_pointer<decltype(&T::Serialize_Binary)>::value, "Input must have a Serialize_Binary method.");
-    return pp_Data.Serialize_Binary(pp_Data);
+    using ElementType = vector_value_type<T>;
+    std::istringstream ll_Stream(ps_Data);
+    std::vector<ElementType> larr_Data;
+    size_t li_Size = 0;
+    ll_Stream >> li_Size;
+
+    for (size_t C1 = 0; C1 < li_Size; C1++)
+    {
+        ElementType ll_Element{};
+        ll_Stream >> ll_Element;
+        larr_Data.push_back(ll_Element);
+    }
+       
+    return larr_Data;
 }
 
 template<typename T>
-typename std::enable_if<CoreX::Is_Primitive<T>::value, T>::type
-CoreX::Serialize::Deserialize_Binary(const std::string& ps_Data)
+std::string CoreX::Serialize::Serialize_Text(const T& pp_Data)
 {
-    T ll_Data{};
-    std::istringstream ll_Stream(ps_Data, std::ios::binary);
-    ll_Stream.read(reinterpret_cast<char*>(&ll_Data), sizeof(ll_Data));
-    return ll_Data;
-}
-
-template<typename T>
-typename std::enable_if<!CoreX::Is_Primitive<T>::value, T>::type
-CoreX::Serialize::Deserialize_Binary(const std::string& ps_Data)
-{
-    static_assert(std::is_member_function_pointer<decltype(&T::Deserialize_Binary)>::value, "Input must have a Deserialize_Binary method.");
-    T ll_Data{};
-    ll_Data = ll_Data.Deserialize_Binary(ps_Data);
-    return ll_Data;
-}
-
-template<typename T>
-typename std::enable_if<CoreX::Is_Primitive<T>::value, std::string>::type
-CoreX::Serialize::Serialize_Text(const T& pp_Data)
-{
-    std::ostringstream  ll_Stream;
+    std::ostringstream ll_Stream;
     ll_Stream << pp_Data;
     return ll_Stream.str();
 }
 
 template<typename T>
-typename std::enable_if<!CoreX::Is_Primitive<T>::value, std::string>::type
-CoreX::Serialize::Serialize_Text(const T& pp_Data)
-{
-    static_assert(std::is_member_function_pointer<decltype(&T::Serialize_Text)>::value, "Input must have a Serialize_Text method.");
-    return pp_Data.Serialize_Text(pp_Data);
-}
-
-template<typename T>
-typename std::enable_if<CoreX::Is_Primitive<T>::value, T>::type
+typename std::enable_if<!CoreX::is_vector<T>::value && !CoreX::is_string<T>::value, T>::type
 CoreX::Serialize::Deserialize_Text(const std::string& ps_Data)
 {
-    T ll_Data{};
-
     std::istringstream ll_Stream(ps_Data);
+    T ll_Data{};
     ll_Stream >> ll_Data;
     return ll_Data;
 }
 
 template<typename T>
-typename std::enable_if<!CoreX::Is_Primitive<T>::value, T>::type
+typename std::enable_if<CoreX::is_string<T>::value, T>::type
 CoreX::Serialize::Deserialize_Text(const std::string& ps_Data)
 {
-    static_assert(std::is_member_function_pointer<decltype(&T::Deserialize_Text)>::value, "Input must have a Deserialize_Text method.");
+    
+    std::istringstream ll_Stream(ps_Data);
+    size_t li_Length = 0;
+    ll_Stream >> li_Length;
+    ll_Stream.get();
+    std::string ls_Result(li_Length, '\0');
+    ll_Stream.read(&ls_Result[0], li_Length);
+
+    return ls_Result;
+}
+
+template<typename T>
+std::string CoreX::Serialize::Serialize_Binary(const T& pp_Data)
+{
+    std::ostringstream  ll_Stream(std::ios::binary);
+    ll_Stream.write(reinterpret_cast<const char*>(&pp_Data), sizeof(pp_Data));
+    return ll_Stream.str();
+}
+
+template<>
+std::string CoreX::Serialize::Serialize_Binary(const std::string& ps_Data)
+{
+    std::ostringstream ll_Stream(std::ios::binary);
+    size_t li_Length = ps_Data.length();
+    ll_Stream.write(reinterpret_cast<const char*>(&li_Length), sizeof(li_Length));
+    ll_Stream.write(ps_Data.data(), li_Length);
+
+    return ll_Stream.str();
+
+}
+
+template<typename T>
+std::string CoreX::Serialize::Serialize_Binary(const std::vector<T>& parr_Data)
+{
+    std::ostringstream ll_Stream(std::ios::binary);
+    size_t li_Length = parr_Data.size();
+    ll_Stream.write(reinterpret_cast<const char*>(&li_Length), sizeof(li_Length));
+    ll_Stream.write(reinterpret_cast<const char*>(parr_Data.data()), li_Length * sizeof(T));
+
+    return ll_Stream.str();
+
+}
+
+template<typename T>
+typename std::enable_if<!CoreX::is_vector<T>::value && !CoreX::is_string<T>::value, T>::type
+CoreX::Serialize::Deserialize_Binary(std::string& ps_Data)
+{
     T ll_Data{};
-    ll_Data = ll_Data.Deserialize_Text(ps_Data);
+    std::istringstream ll_Stream(ps_Data, std::ios::binary);
+    ll_Stream.read(reinterpret_cast<char*>(&ll_Data), sizeof(ll_Data));
+    ps_Data = ps_Data.substr(sizeof(ll_Data));
     return ll_Data;
+}
+
+template<typename T>
+typename std::enable_if<CoreX::is_string<T>::value, T>::type
+CoreX::Serialize::Deserialize_Binary(std::string& ps_Data)
+{
+    std::istringstream ll_Stream(ps_Data, std::ios::binary);
+    size_t li_Length;
+    ll_Stream.read(reinterpret_cast<char*>(&li_Length), sizeof(li_Length));
+
+    std::string ls_Result(li_Length, '\0');
+    ll_Stream.read(&ls_Result[0], li_Length);
+    ps_Data = ps_Data.substr(sizeof(li_Length) + li_Length);
+    
+    return ls_Result;
+}
+
+template<typename T>
+typename std::enable_if<CoreX::is_vector<T>::value, T>::type
+CoreX::Serialize::Deserialize_Binary(std::string& ps_Data)
+{
+    using ElementType = vector_value_type<T>;
+    std::istringstream ll_Stream(ps_Data, std::ios::binary);
+    size_t li_Length;
+    ll_Stream.read(reinterpret_cast<char*>(&li_Length), sizeof(li_Length));
+    std::vector<ElementType> larr_Result;
+    larr_Result.resize(li_Length);
+    
+    ll_Stream.read(reinterpret_cast<char*>(larr_Result.data()), li_Length * sizeof(ElementType));
+    ps_Data = ps_Data.substr(li_Length * sizeof(ElementType) + sizeof(li_Length));
+
+
+    return larr_Result;
 }
