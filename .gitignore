@@ -398,6 +398,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 # CPP
-*.cpp
+Demo.cpp
 *.txt
 *.bin

@@ -33,6 +33,7 @@ namespace CoreX {
 				
 				void Reserve(size_t Amount) { garr_Children.reserve(Amount); }
 
+				const std::vector<std::shared_ptr<Node>>& Children() const  { return garr_Children;  };
 				size_t Children_Count() const { return  garr_Children.size(); }
 				bool Has_Children() const { return !garr_Children.empty(); }
 
