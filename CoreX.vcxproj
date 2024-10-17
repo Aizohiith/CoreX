@@ -159,11 +159,12 @@
   <ItemGroup>
     <ClCompile Include="corex\glew\glew.cpp" />
     <ClCompile Include="corex\glfw\glfw.cpp" />
+    <ClCompile Include="corex\imgui\ImGui\backends\imgui_impl_glfw.cpp" />
+    <ClCompile Include="corex\imgui\ImGui\backends\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="corex\imgui\ImGui\imgui_demo.cpp" />
     <ClCompile Include="corex\imgui\imgui_glfw_glew.cpp" />
     <ClCompile Include="corex\imgui\ImGui\imgui.cpp" />
     <ClCompile Include="corex\imgui\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="corex\imgui\ImGui\imgui_impl_glfw.cpp" />
-    <ClCompile Include="corex\imgui\ImGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="corex\imgui\ImGui\imgui_tables.cpp" />
     <ClCompile Include="corex\imgui\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="Demo.cpp" />

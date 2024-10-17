@@ -224,6 +224,8 @@ namespace CoreX {
 
 			bool GetFocused() const;
 
+			void Set_Context() const;
+
 			GLFWwindow* GetWindow() const;
 
 			~Window();

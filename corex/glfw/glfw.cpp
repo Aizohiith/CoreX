@@ -261,6 +261,11 @@ namespace CoreX {
 			Window* theWindow = static_cast<Window*>(glfwGetWindowUserPointer(window));
 			gb_Focused = focused;
 		}
+
+		void Window::Set_Context() const
+		{
+			glfwMakeContextCurrent(gg_MainWindow);
+		}
 	}
 }
 #endif

@@ -18,6 +18,7 @@ namespace CoreX {
 	{
 		bool Initialize(const GLint& Width = 1024, const GLint& Height = 768, const GLint& X = 0, const GLint& Y = 0);
 		void Set_Viewport(const GLint& Width, const GLint& Height, const GLint& X = 0, const GLint& Y = 0);
+		
 		void Clear_Buffer();
 	}
 }
