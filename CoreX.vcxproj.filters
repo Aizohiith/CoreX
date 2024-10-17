@@ -45,7 +45,7 @@
     <ClInclude Include="corex\type.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="corex\hierarchy.h">
+    <ClInclude Include="corex\hierarchy.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="corex\glfw\glfw.h">
@@ -57,12 +57,42 @@
     <ClInclude Include="corex\config_default.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="corex\glew\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="corex\imgui\imgui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="corex\glfw\glfw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="corex\glew\glew.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="corex\imgui\imgui_glfw_glew.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="corex\imgui\ImGui\imgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="corex\imgui\ImGui\imgui_draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="corex\imgui\ImGui\imgui_impl_glfw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="corex\imgui\ImGui\imgui_impl_opengl3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="corex\imgui\ImGui\imgui_tables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="corex\imgui\ImGui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

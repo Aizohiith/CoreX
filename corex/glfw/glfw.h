@@ -197,7 +197,7 @@ namespace CoreX {
 		{
 		public:
 
-			bool Init(const char* Name, int Width, int Height);
+			bool Initialize(const char* Name, int Width = 1024, int Height = 768);
 
 			void EventHandler();
 			bool ShouldClose();

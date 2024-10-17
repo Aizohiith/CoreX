@@ -7,7 +7,7 @@ namespace CoreX {
 	namespace GLFW {
 		bool Window::gb_Focused = true;
 
-		bool Window::Init(const char* ps_Name, int pi_Width, int pi_Height)
+		bool Window::Initialize(const char* ps_Name, int pi_Width, int pi_Height)
 		{
 			//Initialize parameters
 			gb_Focused = true;
