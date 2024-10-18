@@ -1,8 +1,14 @@
 #pragma once
 #include <iostream>
 
-namespace CoreX { namespace Console
+namespace CoreX 
+{ 
+    namespace Console
 {
+
+        static const char* RED = "\033[31m";
+        static const char* RESET = "\033[0m";
+
         template<typename T>
         void Print(const T& Data);
         template<typename T>
@@ -34,7 +40,7 @@ void CoreX::Console::Print_Error(const T& pp_Data)
 template<typename T>
 void CoreX::Console::Print_Error_Line(const T& pp_Data)
 {
-    std::cerr << pp_Data << std::endl;
+    std::cerr << RED << pp_Data << RESET << std::endl;
 }
 
 void CoreX::Console::New_Line(int pi_Line_Count)

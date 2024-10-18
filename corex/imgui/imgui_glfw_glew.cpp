@@ -11,7 +11,7 @@ bool CoreX::ImGUI::Initilize(GLFWwindow* pp_Window, const char* ps_Version)
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 	io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-	ImGui::StyleColorsDark();
+	ImGui::StyleColorsClassic();
 
 	ImGui_ImplGlfw_InitForOpenGL(pp_Window, true);
 	ImGui_ImplOpenGL3_Init(ps_Version);
