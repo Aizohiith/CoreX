@@ -147,6 +147,7 @@
     <ClInclude Include="corex\fileio.hpp" />
     <ClInclude Include="corex\function.hpp" />
     <ClInclude Include="corex\glew\glew.h" />
+    <ClInclude Include="corex\glew\shader.h" />
     <ClInclude Include="corex\glfw\glfw.h" />
     <ClInclude Include="corex\imgui\imgui.h" />
     <ClInclude Include="corex\math.hpp" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="corex\glew\glew.cpp" />
+    <ClCompile Include="corex\glew\shader.cpp" />
     <ClCompile Include="corex\glfw\glfw.cpp" />
     <ClCompile Include="corex\imgui\ImGui\backends\imgui_impl_glfw.cpp" />
     <ClCompile Include="corex\imgui\ImGui\backends\imgui_impl_opengl3.cpp" />

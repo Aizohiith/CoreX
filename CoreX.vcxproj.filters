@@ -63,6 +63,9 @@
     <ClInclude Include="corex\imgui\imgui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="corex\glew\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo.cpp">
@@ -96,6 +99,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="corex\imgui\ImGui\imgui_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="corex\glew\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
