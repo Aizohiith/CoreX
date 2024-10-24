@@ -1,3 +1,6 @@
+#define EXAMPLE 0
+#if EXAMPLE == 1
+
 #include "corex/glfw/glfw.h"
 
 int main()
@@ -13,3 +16,4 @@ int main()
 	}
 	return 0;
 }
+#endif

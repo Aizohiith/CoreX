@@ -19,12 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="#Libraries\ImGui\backends\imgui_impl_glfw.cpp" />
+    <ClCompile Include="#Libraries\ImGui\backends\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="#Libraries\ImGui\imgui.cpp" />
+    <ClCompile Include="#Libraries\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="#Libraries\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="#Libraries\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="#Libraries\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="corex\examples\glfw_example.cpp" />
     <ClCompile Include="corex\src\glew\framebuffer.cpp" />
     <ClCompile Include="corex\src\glew\glew.cpp" />
     <ClCompile Include="corex\src\glew\shader.cpp" />
     <ClCompile Include="corex\src\glfw\gflw.cpp" />
     <ClCompile Include="corex\src\imgui\imgui_glfw_glew.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="corex\include\corex\config.hpp" />
@@ -110,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)#Libraries\CoreX\#Libraries\ImGui;$(SolutionDir)#Libraries;$(SolutionDir)#Libraries\GLEW\include;$(SolutionDir)corex/include;$(SolutionDir)#Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)#Libraries\ImGui;$(SolutionDir)#Libraries;$(SolutionDir)#Libraries\GLEW\include;$(SolutionDir)corex/include;$(SolutionDir)#Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +135,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)#Libraries\CoreX\#Libraries\ImGui;$(SolutionDir)#Libraries;$(SolutionDir)#Libraries\GLEW\include;$(SolutionDir)corex/include;$(SolutionDir)#Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)#Libraries\ImGui;$(SolutionDir)#Libraries;$(SolutionDir)#Libraries\GLEW\include;$(SolutionDir)corex/include;$(SolutionDir)#Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,7 +152,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)#Libraries\CoreX\#Libraries\ImGui;$(SolutionDir)#Libraries;$(SolutionDir)#Libraries\GLEW\include;$(SolutionDir)corex/include;$(SolutionDir)#Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)#Libraries\ImGui;$(SolutionDir)#Libraries;$(SolutionDir)#Libraries\GLEW\include;$(SolutionDir)corex/include;$(SolutionDir)#Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,7 +169,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)#Libraries\CoreX\#Libraries\ImGui;$(SolutionDir)#Libraries;$(SolutionDir)#Libraries\GLEW\include;$(SolutionDir)corex/include;$(SolutionDir)#Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)#Libraries\ImGui;$(SolutionDir)#Libraries;$(SolutionDir)#Libraries\GLEW\include;$(SolutionDir)corex/include;$(SolutionDir)#Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

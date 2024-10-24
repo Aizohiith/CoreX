@@ -11,11 +11,11 @@
 
 #if INCLUDE_GLEW == 1
 	#include "GL/glew.h"
-	#include "backends/imgui_impl_opengl3.h"
+	#include "ImGui/backends/imgui_impl_opengl3.h"
 #endif // INCLUDE_GLEW
 #if INCLUDE_GLFW == 1
 	#include "GLFW/glfw3.h"
-	#include "backends/imgui_impl_glfw.h"
+	#include "ImGui/backends/imgui_impl_glfw.h"
 #endif // INCLUDE_GLFW
 
 namespace CoreX
