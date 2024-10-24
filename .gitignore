@@ -9,4 +9,4 @@ x64/
 *.txt
 *.vcxproj*
 !*CoreX.vcxproj
-Demo.cpp
+demo.cpp
