@@ -1,0 +1,12 @@
+.vs/
+.git/
+Release/
+Debug/
+x64/
+*.ini
+*.s3dm
+*.bin
+*.txt
+*.vcxproj*
+!*CoreX.vcxproj
+Demo.cpp
