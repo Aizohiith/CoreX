@@ -55,7 +55,7 @@
     <ClInclude Include="corex\include\corex\glfw\glfw.h" />
     <ClInclude Include="corex\include\corex\imgui\imgui.h" />
     <ClInclude Include="corex\include\corex\simply3d\camera.hpp" />
-    <ClInclude Include="corex\include\corex\simply3d\mesh.hpp" />
+    <ClInclude Include="corex\include\corex\glew\mesh.hpp" />
     <ClInclude Include="corex\include\corex\simply3d\primitives.hpp" />
     <ClInclude Include="corex\include\corex\simply3d\simply3d.h" />
     <ClInclude Include="corex\include\corex\simply3d\transform.hpp" />

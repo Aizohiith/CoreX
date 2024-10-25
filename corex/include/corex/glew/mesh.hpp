@@ -8,7 +8,7 @@
 
 namespace CoreX
 {
-	namespace Simply3D
+	namespace GLEW
 	{
 		class Mesh
 		{
