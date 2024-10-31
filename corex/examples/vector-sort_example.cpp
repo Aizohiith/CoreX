@@ -1,4 +1,4 @@
-#define EXAMPLE 1
+#define EXAMPLE 0
 #if EXAMPLE == 1
 
 #include <iostream>
