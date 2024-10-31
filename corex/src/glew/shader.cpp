@@ -5,7 +5,7 @@
 
 namespace CoreX
 {
-	namespace Simply3D
+	namespace GLEW
 	{
 
 		Shader::Shader()

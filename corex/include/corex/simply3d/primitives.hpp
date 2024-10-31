@@ -17,6 +17,7 @@ namespace CoreX
 			class Primitive
 			{
 				public:
+                    std::vector<float> Colour;
 					Primitive(std::initializer_list<float> Vertices, std::initializer_list<unsigned int> Indices)
 						: garr_Vertices{}, garr_Indices{} 
 					{
@@ -103,6 +104,7 @@ namespace CoreX
                 20, 21, 22,
                 20, 22, 23
             });
+
 
             // Quad Primitive (two triangles forming a square)
             Primitive Quad({
