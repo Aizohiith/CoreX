@@ -1,4 +1,4 @@
-#define EXAMPLE 1
+#define EXAMPLE 0
 #if EXAMPLE == 1
 
 #include <iostream>
@@ -18,7 +18,7 @@ int main()
 	Log("Original", Vector);
 
 	std::vector<int> Result = CoreX::Vector::Sort::Sort(static_cast<const std::vector<int>>(Vector));
-	std::vector<int> Result_Bubble = CoreX::Vector::Sort::Sort(static_cast<const std::vector<int>>(Vector), true, CoreX::Vector::Sort::Types::BUBBLE);
+	std::vector<int> Result_Bubble = CoreX::Vector::Sort::Sort(static_cast<const std::vector<int>>(Vector), false, CoreX::Vector::Sort::Types::BUBBLE);
 
 	Log("Result", Result);
 	Log("Result Bubble", Result_Bubble);
