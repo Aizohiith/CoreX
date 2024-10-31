@@ -45,7 +45,7 @@ void CoreX::Vector::Sort::Sort(std::vector<T>& parr_Data, bool pb_Acending, Type
         }break;
         case Sort::Types::BUBBLE:
         {
-            /*
+            /* Zandar09
             * Sort parr_Data
             */
         }break;
