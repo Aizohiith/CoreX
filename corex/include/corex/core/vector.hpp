@@ -1,17 +1,66 @@
 #pragma once
 #include <vector>
 #include <functional>
+#include <algorithm>
 
 namespace CoreX { namespace Vector
 {
-    void Apply_Function(std::vector<float>& Vector, const std::function<float(float)>& Function);
-    std::vector<float> Apply_Function(const std::vector<float>& Vector, const std::function<float(float)>& Function);
+    inline void Apply_Function(std::vector<float>& Vector, const std::function<float(float)>& Function);
+    inline std::vector<float> Apply_Function(const std::vector<float>& Vector, const std::function<float(float)>& Function);
 
     template<typename T>
-    void Fill(std::vector<T>& Vector, T Value, int Length);
+    void Fill(std::vector<T>& Data, T Value, int Length);
     template<typename T>
     std::vector<T> Fill(T Value, int Length);
+
+
+    namespace Sort
+    {
+        enum Types
+        {
+            QUICK,
+            BUBBLE
+        };
+        template<typename T>
+        void Sort(std::vector<T>& Data, bool Acending = true, Types Type = Types::QUICK);
+        template <typename T>
+        std::vector<T> Sort(const std::vector<T>& Data, bool Acending = true, Types Type = Types::QUICK);
+    }
+
+
 }}
+
+template <typename T>
+void CoreX::Vector::Sort::Sort(std::vector<T>& parr_Data, bool pb_Acending, Types pp_Type)
+{
+
+    switch (pp_Type)
+    {
+        case Sort::Types::QUICK:
+        {
+            if (pb_Acending)
+                std::sort(parr_Data.begin(), parr_Data.end());
+            else
+                std::sort(parr_Data.begin(), parr_Data.end(), [](const T& A,const T& B) { return A > B; });
+        }break;
+        case Sort::Types::BUBBLE:
+        {
+            /*
+            * Sort parr_Data
+            */
+        }break;
+        default: break;
+    }
+}
+
+template <typename T>
+std::vector<T> CoreX::Vector::Sort::Sort(const std::vector<T>& parr_Data, bool pb_Acending, Types pp_Type)
+{
+    std::vector<T> larr_Result(parr_Data);
+    CoreX::Vector::Sort::Sort(larr_Result, pb_Acending, pp_Type);
+
+    return larr_Result;
+}
 
 void CoreX::Vector::Apply_Function(std::vector<float>& parr_Vector, const std::function<float(float)>& pp_Function)
 {
@@ -21,10 +70,8 @@ void CoreX::Vector::Apply_Function(std::vector<float>& parr_Vector, const std::f
 
 std::vector<float> CoreX::Vector::Apply_Function(const std::vector<float>& parr_Vector, const std::function<float(float)>& pp_Function) {
     
-    std::vector<float> larr_Result;
-    larr_Result.reserve(parr_Vector.size());
-    for (const auto& E1 : parr_Vector)
-        larr_Result.push_back(pp_Function(E1));
+    std::vector<float> larr_Result(parr_Vector);
+    Apply_Function(larr_Result, pp_Function);
     return larr_Result;
 }
 
@@ -39,6 +86,7 @@ void CoreX::Vector::Fill(std::vector<T>& parr_Vector, T pp_Value, int pi_Length)
         parr_Vector.push_back(pp_Value);
 }
 template<typename T>
+
 std::vector<T> CoreX::Vector::Fill(T pp_Value, int pi_Length)
 {
     std::vector<T> larr_Data;

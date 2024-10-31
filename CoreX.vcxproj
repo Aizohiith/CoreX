@@ -27,6 +27,7 @@
     <ClCompile Include="#Libraries\ImGui\imgui_tables.cpp" />
     <ClCompile Include="#Libraries\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="corex\examples\glfw_example.cpp" />
+    <ClCompile Include="corex\examples\vector-sort_example.cpp" />
     <ClCompile Include="corex\src\glew\framebuffer.cpp" />
     <ClCompile Include="corex\src\glew\glew.cpp" />
     <ClCompile Include="corex\src\glew\shader.cpp" />
