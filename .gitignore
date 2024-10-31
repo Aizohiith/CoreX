@@ -10,3 +10,4 @@ x64/
 *.vcxproj*
 !*CoreX.vcxproj
 demo.cpp
+/glew32.dll

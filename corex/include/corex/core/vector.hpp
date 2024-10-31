@@ -21,8 +21,10 @@ namespace CoreX { namespace Vector
             QUICK,
             BUBBLE
         };
+        //Sort Vector inplace
         template<typename T>
         void Sort(std::vector<T>& Data, bool Acending = true, Types Type = Types::QUICK);
+        //Sort and Return Vector
         template <typename T>
         std::vector<T> Sort(const std::vector<T>& Data, bool Acending = true, Types Type = Types::QUICK);
     }
@@ -45,9 +47,31 @@ void CoreX::Vector::Sort::Sort(std::vector<T>& parr_Data, bool pb_Acending, Type
         }break;
         case Sort::Types::BUBBLE:
         {
-            /*
-            * Sort parr_Data
-            */
+            std::cout << "Herte" << std::endl;
+            for (size_t C1 = 0; C1 < parr_Data.size() - 1; C1++)
+            {
+                for (size_t C2 = C1 + 1; C2 < parr_Data.size(); C2++)
+                {
+                    if ((parr_Data[C1] > parr_Data[C2]) and (pb_Acending))
+                    {
+                        T ll_Temp;
+
+                        ll_Temp = parr_Data[C1];
+                        parr_Data[C1] = parr_Data[C2];
+                        parr_Data[C2] = ll_Temp;
+                    }
+                    else
+                    if ((parr_Data[C1] < parr_Data[C2]) and (!pb_Acending))
+                    {
+                        T ll_Temp;
+
+                        ll_Temp = parr_Data[C1];
+                        parr_Data[C1] = parr_Data[C2];
+                        parr_Data[C2] = ll_Temp;
+                    }
+                }
+            }
+
         }break;
         default: break;
     }
