@@ -27,6 +27,7 @@
     <ClCompile Include="#Libraries\ImGui\imgui_tables.cpp" />
     <ClCompile Include="#Libraries\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="corex\examples\glfw_example.cpp" />
+    <ClCompile Include="corex\examples\simply3d_example.cpp" />
     <ClCompile Include="corex\examples\vector-sort_example.cpp" />
     <ClCompile Include="corex\src\glew\framebuffer.cpp" />
     <ClCompile Include="corex\src\glew\glew.cpp" />
@@ -56,6 +57,8 @@
     <ClInclude Include="corex\include\corex\imgui\imgui.h" />
     <ClInclude Include="corex\include\corex\simply3d\camera.hpp" />
     <ClInclude Include="corex\include\corex\glew\mesh.hpp" />
+    <ClInclude Include="corex\include\corex\simply3d\node\node.hpp" />
+    <ClInclude Include="corex\include\corex\simply3d\node\root.hpp" />
     <ClInclude Include="corex\include\corex\simply3d\primitives.hpp" />
     <ClInclude Include="corex\include\corex\simply3d\simply3d.h" />
     <ClInclude Include="corex\include\corex\simply3d\transform.hpp" />
